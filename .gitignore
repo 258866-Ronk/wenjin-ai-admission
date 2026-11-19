@@ -1,0 +1,14 @@
+.env
+.env.local
+*.log
+.idea/
+.vscode/
+backend/target/
+data-importer/target/
+frontend/node_modules/
+frontend/.next/
+frontend/playwright-report/
+frontend/test-results/
+references/**/node_modules/
+references/**/__pycache__/
+*.iml

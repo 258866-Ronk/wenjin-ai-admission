@@ -1,0 +1,14 @@
+export interface User{id:string;email?:string;displayName:string;role:string;anonymous:boolean}
+export interface Conversation{id:string;title:string;status:string;createdAt:string;updatedAt:string}
+export interface Message{id:string;role:"user"|"assistant";messageType:string;content:string;structuredContentJson?:string;createdAt:string}
+export interface Profile{id:string;province?:string;examYear?:number;score?:number;rank?:number;subjectType?:string;batch?:string;annualTuitionBudget?:number;preferredCities:string[];preferredMajors:string[];acceptCooperative?:boolean;version:number}
+export interface AdmissionRecord{id:string;schoolName:string;schoolCode?:string;schoolTags:string[];city:string;majorName?:string;majorGroup?:string;year:number;dataType:string;minScore?:number;minRankEnd?:number;planCount?:number;tuition?:number;rankUnavailable:boolean;scoreOnly:boolean;sourceId:string;sourceUrl:string;sourceQuality:string;cautions:string[]}
+export interface Candidate{record:AdmissionRecord;tier:string;tierGroup:string;totalScore:number;reasons:string[];riskNotes:string[];sourceIds:string[]}
+export interface Risk{code:string;level:"LOW"|"MEDIUM"|"HIGH"|"BLOCKING";title:string;detail:string}
+export interface Evidence{id:string;title:string;excerpt:string;sourceId:string;sourceUrl:string;datasetVersion:string}
+export interface Report{id:string;runId:string;title:string;profile:Profile;datasetVersion:string;dataCoverage:string;overallComment:string;overallRiskLevel:string;tierSummary:{challenge:number;stable:number;safe:number};balancedPlan:{items:Candidate[]};riskItems:Risk[];evidence:Evidence[];disclaimer:string;compliancePassed:boolean;explanationDegraded:boolean}
+export interface RunSubmit{conversationId:string;messageId:string;runId:string;status:string}
+export interface RunView{run:{id:string;status:string;currentNode:string;datasetVersion?:string;errorMessage?:string};state?:{reportId?:string}}
+export interface AiConfig{mode:string;provider:string;baseUrl:string;chatModel?:string;fastModel?:string;embeddingModel?:string;timeoutSeconds:number;maxRetries:number;maxOutputTokens:number;apiKeyConfigured:boolean;apiKeyMasked:string;source:"FRONTEND"|"ENVIRONMENT";updatedAt?:string}
+export interface AiConfigUpdate{mode:string;provider:string;baseUrl:string;apiKey?:string;clearApiKey:boolean;chatModel?:string;fastModel?:string;embeddingModel?:string;timeoutSeconds:number;maxRetries:number;maxOutputTokens:number}
+export interface AiConfigTest{success:boolean;mode:string;model?:string;latencyMillis:number;message:string}

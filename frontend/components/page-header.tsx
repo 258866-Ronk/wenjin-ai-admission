@@ -1,0 +1,2 @@
+import { Compass, Home, Settings, UserRound } from "lucide-react";import Link from "next/link";
+export function PageHeader(){return <header className="app-header"><Link href="/" className="brand" style={{textDecoration:"none"}}><span className="brand-mark"><Compass size={20}/></span>问津智愿 AI</Link><nav className="header-actions"><Link className="button" href="/"><Home size={16}/>咨询</Link><Link className="button" href="/profile"><UserRound size={16}/>档案</Link><Link className="button" href="/admin/model-settings"><Settings size={16}/>模型 API</Link></nav></header>}
